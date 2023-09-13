@@ -15,6 +15,8 @@ We sell things! This full-stack Javascript React application allows users to pur
 - **CSS**
   
 - **HTML**
+
+- **MongoDB/Mongoose**
   
 - **Heroku**
 
