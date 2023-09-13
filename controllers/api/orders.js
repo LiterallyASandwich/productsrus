@@ -6,7 +6,8 @@ module.exports = {
   addToCart,
   setItemQtyInCart,
   checkout,
-  getOrderHistory
+  getOrderHistory,
+  deleteOrder
 };
 
 
@@ -41,4 +42,10 @@ async function getOrderHistory(req, res) {
   const orders = await Order.find({ user: req.user._id })
   console.log(orders)
   res.json(orders)
+}
+
+async function deleteOrder(req, res) {
+  console.log("Delete Function")
+  const order = await Order.findByIdAndDelete(req.params.id)
+  res.json({ message:"order was deleted"})
 }

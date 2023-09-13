@@ -1,6 +1,6 @@
 
 import LineItem from '../LineItem/LineItem';
-
+import * as ordersAPI from '../../utilities/orders-api';
 // Used to display the details of any order, including the cart (unpaid order)
 export default function OrderDetail({ order, handleChangeQty, handleCheckout }) {
   if (!order) return null;
@@ -13,6 +13,12 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
       key={item._id}
     />
   );
+
+const handleDelete = async (evt) => {
+  evt.preventDefault()
+  await ordersAPI.deleteOrder(order._id)
+  console.log("Delete Buttons")
+}
 
   return (
     <div className="OrderDetail">
@@ -32,11 +38,18 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
               {order.isPaid ?
                 <span className="right">TOTAL&nbsp;&nbsp;</span>
                 :
+                <div>
                 <button
                   className="btn-sm"
                   onClick={handleCheckout}
                   disabled={!lineItems.length}
                 >CHECKOUT</button>
+
+                <button
+                className="btn-sm"
+                onClick={handleDelete}
+                >DELETE ORDER</button>
+                </div>
               }
               <span>{order.totalQty}</span>
               <span className="right">${order.orderTotal.toFixed(2)}</span>

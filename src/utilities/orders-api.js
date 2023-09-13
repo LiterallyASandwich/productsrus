@@ -28,3 +28,8 @@ export function getOrderHistory() {
   return sendRequest(`${BASE_URL}`)
 
 }
+
+export function deleteOrder(id) {
+
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}

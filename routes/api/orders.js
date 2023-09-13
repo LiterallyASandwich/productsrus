@@ -12,6 +12,6 @@ router.post('/cart/checkout', ordersCtrl.checkout);
 
 router.put('/cart/qty', ordersCtrl.setItemQtyInCart);
 
-
+router.delete('/:id', ordersCtrl.deleteOrder)
 
 module.exports = router;
