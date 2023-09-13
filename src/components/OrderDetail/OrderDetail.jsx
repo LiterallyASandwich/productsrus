@@ -16,8 +16,8 @@ export default function OrderDetail({ order, handleChangeQty, handleCheckout }) 
 
 const handleDelete = async (evt) => {
   evt.preventDefault()
-  await ordersAPI.deleteOrder(order._id)
-  console.log("Delete Buttons")
+const res =  await ordersAPI.deleteOrder(order._id)
+  alert(res.message)
 }
 
   return (
@@ -50,6 +50,8 @@ const handleDelete = async (evt) => {
                 onClick={handleDelete}
                 >DELETE ORDER</button>
                 </div>
+
+              
               }
               <span>{order.totalQty}</span>
               <span className="right">${order.orderTotal.toFixed(2)}</span>
