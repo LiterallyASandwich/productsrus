@@ -11,7 +11,9 @@ export default function App() {
   const [user, setUser] = useState(getUser());
 
   return (
+    
     <main className="App">
+      <h1>Products R Us</h1>
       { user ?
           <>
             <NavBar user={ user } setUser={ setUser }/>
@@ -24,6 +26,11 @@ export default function App() {
           :
           <AuthPage setUser={ setUser }/>
       }
+
+      
+      <h5>We sell products!</h5>
+      <h5><i>"Well, what kind of products do ya'll sell?"</i> You ask?</h5>
+      <h4>Y e s</h4>
     </main>
   );
 }

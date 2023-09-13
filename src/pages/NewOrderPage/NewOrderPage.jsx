@@ -44,7 +44,7 @@ export default function NewOrderPage() {
 
   return (
     <main className="NewOrderPage">
-      
+      <h1>Order Our Products!</h1>
        
         
         <Link to="/orders" className="button btn-sm">PREVIOUS ORDERS</Link>

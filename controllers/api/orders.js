@@ -6,6 +6,7 @@ module.exports = {
   addToCart,
   setItemQtyInCart,
   checkout,
+  getOrderHistory
 };
 
 
@@ -34,4 +35,10 @@ async function checkout(req, res) {
   cart.isPaid = true;
   await cart.save();
   res.json(cart);
+}
+
+async function getOrderHistory(req, res) {
+  const orders = await Order.find({ user: req.user._id })
+  console.log(orders)
+  res.json(orders)
 }
